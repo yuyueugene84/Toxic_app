@@ -1,0 +1,28 @@
+<h1>品牌列表</h1>
+
+<table>
+  <tr>
+    <th>品牌ID</th>
+
+    <th>品牌名(英文)</th>
+
+    <th>品牌名(中文)</th>
+
+    <th><%= link_to '新增品牌', new_brand_path %></th>
+    </tr>
+      <th colspan="4"></th>
+      <th></th>
+      <th></th>
+    </tr>
+  <br/>
+  <% @brands.each do |brand| %>
+    <tr>
+      <td><%= brand.Brand_ID %></td>
+      <td><%= brand.Brand_name %></td>
+      <td><%= brand.Brand_cname %></td>
+      <td><%= link_to '查詢', brand_path(brand) %></td>
+      <td><%= link_to '編輯', edit_brand_path(brand) %></td>
+      <td><%= link_to '刪除', brand_path(brand), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
