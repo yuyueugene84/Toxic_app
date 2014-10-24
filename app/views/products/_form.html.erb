@@ -1,0 +1,46 @@
+<%= form_for [@brand, @product] do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this brand from being saved:</h2>
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form role="form">
+  <div class="form-group">
+  
+  <div class="form-group">
+  <label><%= f.label :'產品類別:' %></label><br>
+  <% if current_page?(:controller => 'products', :action => 'new') %>
+    <%= f.collection_select(:type_id, @type, :id, :type_cname, :include_blank => "請選擇...") %>
+  <% else %>
+    <%= f.collection_select(:type_id, @type, :id, :type_cname, :selected => @product.type_id.to_i) %>
+  <% end %>
+  </div>
+
+
+
+
+
+  <div class="form-group">
+    <label><%= f.label :'產品名(英):' %></label><br>
+    <%= f.text_field :product_name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :'產品名(中):' %><br>
+    <%= f.text_field :product_cname %>
+  </div>
+  <div class="actions">
+    <% if current_page?(:controller => 'products', :action => 'new') %>
+    <%= f.submit "新增", class: "btn btn-primary" %>
+    <% else %>
+    <%= f.submit "編輯", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
+
+  </div>
+</form>

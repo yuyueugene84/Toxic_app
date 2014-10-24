@@ -1,0 +1,42 @@
+<%= form_for [@brand, @product, @ingredient] do |f| %>
+  <% if @ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this brand from being saved:</h2>
+      <ul>
+      <% @ingredient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form role="form">
+  <div class="form-group">
+  
+  <div class="form-group">
+    <label><%= f.label :'成分名(英):' %></label><br>
+    <%= f.text_field :ingredient_name %>
+  </div>
+  <div class="form-group">
+    <label><%= f.label :'成分名(中):' %></label><br>
+    <%= f.text_field :ingredient_cname %>
+  </div>
+  <div class="form-group">
+    <%= f.label :'CAS 編號:'.upcase %><br>
+    <%= f.text_field :cas_number %>
+    <br>
+    <a href ="http://zh.wikipedia.org/wiki/CAS%E5%8F%B7">CAS標號是什麼？</a>
+    <br>
+    <a href ="http://www.molbase.com/en/index.html">CAS編號查詢網頁</a>
+  </div>
+
+  <div class="actions">
+    <% if current_page?(:controller => 'ingredients', :action => 'new') %>
+    <%= f.submit "新增", class: "btn btn-primary" %>
+    <% else %>
+    <%= f.submit "編輯", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
+
+  </div>
+</form>

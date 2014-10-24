@@ -1,0 +1,34 @@
+<h3><b>產品列表</b></h3>
+	
+	<table class="table table-hover table-bordered">
+
+		<tbody>
+			  <tr>
+
+				<th><h4>品牌ID</h4></th>
+				<th><h4>產品ID</h4></th>
+				<th><h4>產品類別</h4></th>
+				<th><h4>產品名(英文)</h4></th>
+				<th><h4>品名(中文)</h4></th>
+				<th colspan="3"><%= link_to '新增產品', new_brand_product_path(@brand), class: "btn btn-primary" %></th>
+  			  </tr>
+
+
+			<% @product_joined.each do |product| %>
+			<tr>
+				<td> <%= product.brand_id %> </td>
+				<td> <%= product.id %> </td>
+				<td> <%= product.type_cname %> </td>
+				<td> <%= product.product_name %> </td>
+				<td> <%= product.product_cname %> </td>
+
+				<td> <%= link_to("查詢", brand_product_path(product.brand, product))%></td>
+				<td> <%= link_to("編輯", edit_brand_product_path(product.brand, product))%></td>
+ 				<td> <%= link_to("刪除", brand_product_path(product.brand, product), :method => :delete, :confirm => "Are you sure?" ) %> </td>
+			</tr>
+			<% end %>
+
+
+		</tbody>
+	</table>
+</div>

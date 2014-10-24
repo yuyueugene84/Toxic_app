@@ -1,0 +1,19 @@
+<h1><b><%= @brand.brand_cname %> 細節</b></h1>
+<div class="span12">
+  <table class="table table-striped table-bordered">
+  	  <tr>
+	    <th><h4>品牌 ID:</h4></th>   <td><h4><%= @brand.id %></h4></td>
+	  </tr>
+	  <tr>
+	    <th><h4>品牌名(英):</h4></th>   <td><h4><%= @brand.brand_name %></h4></td>
+	  </tr>
+	  <tr>
+	    <th><h4>品牌名(中):</h4></th>    <td><h4><%= @brand.brand_cname %></h4></td>
+	  </tr>
+
+  
+  </table>
+<br>
+<%= render 'list' %>
+<br>
+<%= link_to '回品牌列表', brands_path %>

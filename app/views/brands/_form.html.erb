@@ -1,0 +1,33 @@
+<%= form_for(@brand) do |f| %>
+  <% if @brand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
+      <ul>
+      <% @brand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form role="form">
+  <div class="form-group">
+
+  <div class="form-group">
+    <label><%= f.label :'品牌名(英):' %></label><br>
+    <%= f.text_field :brand_name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :'品牌名(中):' %><br>
+    <%= f.text_field :brand_cname %>
+  </div>
+  <div class="actions">
+    <% if current_page?(:controller => 'brands', :action => 'new') %>
+    <%= f.submit "新增", class: "btn btn-primary" %>
+    <% else %>
+    <%= f.submit "編輯", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
+
+  </div>
+</form>

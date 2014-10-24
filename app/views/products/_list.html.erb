@@ -1,0 +1,33 @@
+<h3><b>成分列表</b></h3>
+	
+	<table class="table table-hover table-bordered">
+
+		<tbody>
+			  <tr>
+			    <th><h4>成分ID</h4></th>
+
+    			<th><h4>成分名(英)</h4></th>
+
+    			<th><h4>成分名(中)</h4></th>
+
+    			<th><h4>CAS編號</h4></th>
+
+    			<th colspan="3"><%= link_to '新增成分', new_brand_product_ingredient_path(@brand, @product, @ingredient), class: "btn btn-primary" %></th>
+  			  </tr>
+
+			<% @ingredients.each do |ingredient| %>
+			<tr>
+				<td> <%= ingredient.id %> </td>
+				<td> <%= ingredient.ingredient_name %> </td>
+				<td> <%= ingredient.ingredient_cname %> </td>
+				<td> <%= ingredient.cas_number %> </td>
+
+				<td> <%= link_to("查詢", brand_product_ingredient_path(@brand.id, ingredient.product_id, ingredient))%> </td>
+				<td> <%= link_to("編輯", edit_brand_product_ingredient_path(@brand.id, ingredient.product_id, ingredient))%> </td>
+ 				<td> <%= link_to("刪除", brand_product_path(@brand.id, ingredient.product_id, ingredient), :method => :delete, :confirm => "確認要刪除成分?" ) %> </td>
+			</tr>
+			<% end %>
+
+		</tbody>
+	</table>
+</div>
