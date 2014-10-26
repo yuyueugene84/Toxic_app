@@ -24,9 +24,9 @@
     <%= f.label :'CAS 編號:'.upcase %><br>
     <%= f.text_field :cas_number %>
     <br>
-    <a href ="http://zh.wikipedia.org/wiki/CAS%E5%8F%B7">CAS標號是什麼？</a>
+    <%= link_to "CAS標號是什麼？", "http://zh.wikipedia.org/wiki/CAS%E5%8F%B7", :target => "_blank"%>
     <br>
-    <a href ="http://www.molbase.com/en/index.html">CAS編號查詢網頁</a>
+    <%= link_to "CAS編號查詢網頁", "http://www.molbase.com/en/index.html", :target => "_blank"%>
   </div>
 
   <div class="actions">

@@ -1,0 +1,15 @@
+<h1><b><%= @ingredient.ingredient_cname %> 成分細節</b></h1>
+<div class="span12">
+  <table class="table table-striped table-bordered">
+	  <tr>
+	    <th><h4>成分名(英):</h4></th>   <td><h4><%= @ingredient.ingredient_name %></h4></td>
+	  </tr>
+	  <tr>
+	    <th><h4>成分名(中):</h4></th>    <td><h4><%= @ingredient.ingredient_cname %></h4></td>
+	  </tr>
+	  <tr>
+	    <th><h4>CAS編碼:</h4></th>    <td><h4><%= @ingredient.cas_number %></h4></td>
+	  </tr>
+  </table>
+
+<%= link_to '回產品列表', brand_product_path(@brand, @product) %>

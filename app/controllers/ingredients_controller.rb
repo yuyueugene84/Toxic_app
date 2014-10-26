@@ -20,7 +20,7 @@ class IngredientsController < ApplicationController
 			flash[:success] = "成分新增成功！"
 	 		redirect_to brand_product_path(@brand, @product)
 	 	else	
-	 		flash[:danger] = "成分新增失敗！"
+	 		flash.now[:danger] = "成分新增失敗！"
 	 		render :new
 	 	end
 	end
@@ -44,11 +44,13 @@ class IngredientsController < ApplicationController
 	end
 
 	def destroy
+		@brand = Brand.find(params[:brand_id])
 		@product = Product.find(params[:product_id])
 		@ingredient = @product.ingredients.find(params[:id])
 
 		@ingredient.destroy
-		redirect_to brand_product_path(@product)
+		#redirect_to brand_product_path(@product)
+		redirect_to brand_product_path(@brand, @product)
 	end
 
 private

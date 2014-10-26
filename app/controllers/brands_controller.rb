@@ -18,7 +18,7 @@ def create
     	#debugger
       # Handle a successful save.
     else
-      flash[:danger] = "品牌新增失敗！"
+      flash.now[:danger] = "品牌新增失敗！"
       #redirect_to new_brand_path
       render :new
     end
@@ -28,7 +28,7 @@ def show
 
 	@brand = Brand.find(params[:id])
 	@products = @brand.products
-	@product_joined = Product.select("products.id, products.brand_id, products.product_name, products.product_cname, products.type_id, types.type_name, types.type_cname").joins('LEFT OUTER JOIN types ON types.id = products.type_id')
+	@product_joined = @products.select("products.id, products.brand_id, products.product_name, products.product_cname, products.type_id, types.type_name, types.type_cname").joins('LEFT OUTER JOIN types ON types.id = products.type_id')
 	#@product_joined = Product.select("products.*, types.*").joins('LEFT OUTER JOIN types ON types.id = products.type_id')
 	#@type = Type.find(params[@product_type])
 	debugger

@@ -19,7 +19,7 @@
       <td><%= brand.brand_cname %></td>
       <td><%= link_to '查詢', brand_path(brand) %></td>
       <td><%= link_to '編輯', edit_brand_path(brand) %></td>
-      <td><%= link_to '刪除', brand_path(brand), method: :delete, data: { confirm: "確認要刪除？" } %></td>
+      <td><%= link_to '刪除', brand_path(brand), method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
 </table>

@@ -24,7 +24,7 @@
 
 				<td> <%= link_to("查詢", brand_product_ingredient_path(@brand.id, ingredient.product_id, ingredient))%> </td>
 				<td> <%= link_to("編輯", edit_brand_product_ingredient_path(@brand.id, ingredient.product_id, ingredient))%> </td>
- 				<td> <%= link_to("刪除", brand_product_path(@brand.id, ingredient.product_id, ingredient), :method => :delete, :confirm => "確認要刪除成分?" ) %> </td>
+ 				<td> <%= link_to("刪除", brand_product_ingredient_path(@brand.id, ingredient.product_id, ingredient), :method => :delete, :confirm => "Are you sure?" ) %> </td>
 			</tr>
 			<% end %>
 

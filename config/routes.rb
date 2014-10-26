@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  get 'search' => 'static_pages#search'
+
   resources :brands do
     resources :products do
         resources :ingredients    

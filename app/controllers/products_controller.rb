@@ -26,7 +26,7 @@ def create
     	#debugger
       # Handle a successful save.
     else
-      flash[:danger] = "產品新增失敗！"
+      flash.now[:danger] = "產品新增失敗！"
 	  #redirect_to new_brand_product_path
 	  render :new
     end

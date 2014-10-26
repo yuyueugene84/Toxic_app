@@ -4,6 +4,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 gem 'bootstrap-sass'
+
+gem 'devise'
+#devise for user authenication
+
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
