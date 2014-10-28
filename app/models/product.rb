@@ -1,8 +1,9 @@
 class Product < ActiveRecord::Base
 	
 	belongs_to :brand
-	belongs_to :type
 	has_many :ingredients
+	belongs_to :type
+	belongs_to :user
 	#has_and_belongs_to_many :types
 
 

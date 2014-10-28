@@ -1,0 +1,32 @@
+<!-- <h2>編輯 <%#= resource_name.to_s.humanize %></h2> -->
+<h2>編輯 <%= resource.user_name %></h2>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group"><%= f.label :user_name %><br />
+  <%= f.text_field :user_name, autofocus: true %></div>
+
+  <div class="form-group"><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="form-group"><%= f.label :password %> <i>(若不想改請空白)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+
+  <div class="form-group"><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+  <div class="form-group"><%= f.label :current_password %> <i>(需要現在使用的密碼確認)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %></div>
+
+  <div class="form-group"><%= f.submit "編輯" %></div>
+<% end %>
+
+<h3>刪除我的帳號</h3>
+
+<p>確認要刪除帳號? <%= button_to "刪除帳號", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "返回", :back %>

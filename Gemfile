@@ -8,6 +8,9 @@ gem 'bootstrap-sass'
 gem 'devise'
 #devise for user authenication
 
+gem 'simple_form'
+#form helper, needed for devise
+
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets

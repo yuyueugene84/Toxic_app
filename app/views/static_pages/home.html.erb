@@ -3,6 +3,12 @@
   <br>
   <h3>這是針對搜集市面上販售的食品, 日用品, 以及化妝品成分所建立的系統</h3>
   <br>
-  <%= link_to "進入", brands_path, class: "btn btn-lg btn-primary" %>
+  <% if user_signed_in? %>
+  	<%= link_to "進入", brands_path, class: "btn btn-lg btn-primary" %>
+  <% else %>
+  	<%= link_to '登入', new_user_session_path, class: "btn btn-lg btn-primary" %>
+  	<%= link_to '訪客參觀', brands_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
+
 </div>
 

@@ -10,7 +10,7 @@
 				<th><h4>產品類別</h4></th>
 				<th><h4>產品名(英文)</h4></th>
 				<th><h4>品名(中文)</h4></th>
-				<th colspan="3"><%= link_to '新增產品', new_brand_product_path(@brand), class: "btn btn-primary" %></th>
+				<th colspan="3"><%= link_to '新增產品', new_brand_product_path(@brand), class: "btn btn-primary" if current_user %></th>
   			  </tr>
 
 
@@ -23,8 +23,18 @@
 				<td> <%= product.product_cname %> </td>
 
 				<td> <%= link_to("查詢", brand_product_path(product.brand, product))%></td>
-				<td> <%= link_to("編輯", edit_brand_product_path(product.brand, product))%></td>
- 				<td> <%= link_to("刪除", brand_product_path(product.brand, product), :method => :delete, :confirm => "Are you sure?" ) %> </td>
+				<td> 
+					<%# if current_user && @brand.editable_by?(current_user) %>
+					<% if !current_user.blank?  %>
+					<%= link_to("編輯", edit_brand_product_path(product.brand, product))%>
+					<% end %>
+				</td>
+ 				<td>
+ 					<%# if current_user && @brand.editable_by?(current_user) %>
+ 					<% if !current_user.blank? %>
+ 					<%= link_to("刪除", brand_product_path(product.brand, product), :method => :delete, :confirm => "Are you sure?" ) %> 
+ 					<% end %>
+ 				</td>
 			</tr>
 			<% end %>
 

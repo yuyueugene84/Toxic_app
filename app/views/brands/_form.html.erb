@@ -20,6 +20,7 @@
     <%= f.label :'品牌名(中):' %><br>
     <%= f.text_field :brand_cname %>
   </div>
+  
   <div class="actions">
     <% if current_page?(:controller => 'brands', :action => 'new') %>
     <%= f.submit "新增", class: "btn btn-primary" %>
